@@ -14,6 +14,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 24px;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', 'Heebo', sans-serif;
@@ -67,11 +75,11 @@ body::before {
 .page-shell {
   display: grid;
   grid-template-columns: minmax(280px, 340px) 1fr;
-  gap: 24px;
+  gap: 28px;
   align-items: start;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 24px 20px 40px;
+  padding: 24px 20px 48px;
 }
 
 .sidebar,
@@ -233,15 +241,21 @@ body::before {
   color: #052e2b;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
 .main-content {
   display: grid;
-  gap: 20px;
+  gap: 22px;
 }
 
 .hero-card,
 .content-card {
   border-radius: 22px;
-  padding: 24px;
+  padding: 24px 24px 26px;
   transition: border-color 0.25s ease;
 }
 
@@ -289,7 +303,7 @@ body::before {
 
 .section-heading {
   margin-bottom: 16px;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -366,6 +380,11 @@ body::before {
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: none;
 }
+
+.project-grid article h4 {
+  margin-bottom: 8px;
+}
+
 
 .project-grid h4 {
   margin-bottom: 8px;
