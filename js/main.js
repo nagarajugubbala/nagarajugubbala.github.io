@@ -33,10 +33,19 @@
 
   $(window).scroll(function () {
     if ($(this).scrollTop() > 120) {
-      $('.back-to-top').fadeIn('slow');
+      $('.back-to-top').stop(true, true).fadeIn(180).addClass('is-visible');
     } else {
-      $('.back-to-top').fadeOut('slow');
+      $('.back-to-top').stop(true, true).fadeOut(140).removeClass('is-visible');
     }
+
+    $('.content-card, .hero-card').each(function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+      var viewportBottom = $(window).scrollTop() + $(window).height() * 0.92;
+      if (elementTop < viewportBottom && elementBottom > $(window).scrollTop()) {
+        $(this).addClass('is-visible');
+      }
+    });
   });
 
   $('.back-to-top').click(function () {
